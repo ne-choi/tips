@@ -1,0 +1,39 @@
+---
+title: "tip00_basic"
+author: "ne_choi"
+date: '2020 10 11 '
+output:
+  html_document:
+   toc: true
+   toc_float:
+     collapsed: false
+     smooth_scroll: true
+   theme: united
+   highlight: textmate
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 1. github
+
+
+# 2. R
+## 1. R Markdown 형식
+```
+title: "tip00_basic" #문서 제목 지정
+author: "ne_choi"
+date: '2020 10 11 '
+output:
+  html_document: #html 문서 생성
+   toc: true #목차 추가
+   toc_float: #스크롤 다운 시 목차 함께 내려옴
+     collapsed: false #목차 최상위 수준만 기본 노출
+     smooth_scroll: true #목차 선택 시 화면 부드럽게 이동
+   theme: united #기본 스타일 지정 테마
+   highlight: textmate #구문 하이라이트
+```
+
+# 3. python
+

@@ -1,0 +1,75 @@
+---
+title: "tip01_apply_family_of_functions"
+author: "ne_choi"
+date: '2020 10 11 '
+output:
+  html_document:
+   toc: true
+   toc_float:
+     collapsed: false
+     smooth_scroll: true
+   theme: united
+   highlight: textmate
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[참고링크_1: 꼬낄콘의 분석일지](https://kkokkilkon.tistory.com/67)  
+[참고링크_2: DataCamp](https://www.datacamp.com/community/tutorials/r-tutorial-apply-family?utm_source=adwords_ppc&utm_campaignid=1658343524&utm_adgroupid=63833882055&utm_device=c&utm_keyword=%2Br%20%2Bapply%20%2Bfunction&utm_matchtype=b&utm_network=g&utm_adpostion=&utm_creative=319558765408&utm_targetid=kwd-589281899934&utm_loc_interest_ms=&utm_loc_physical_ms=1009867&gclid=Cj0KCQjwt4X8BRCPARIsABmcnOqFmMmEVyvd_BXMOcnJrJchLaFeQrIUvBGrEG-8IIcDXzCHIo1CWMIaAjZ-EALw_wcB#family)
+
+## 1. apply 계열 함수 정리  
+- apply 계열 함수  
+: 복잡한 결합에 기반하는 함수, 짧은 코드로 실행할 수 있음  
+
+- apply 계열 함수 종류
+: apply(), lapply(), sapply(). vapply(), mapply(), rapply(), tapply()  
+
+
+## 2. How to use apply() in R
+
+
+
+## 실습
+출처: https://kkokkilkon.tistory.com/67
+
+1. for 함수와 비교하기  
+iris 데이터에서 컬럼을 체크하여 numeric 컬럼만 필터링한 데이터프레임 iris_num 만들기  
+
+- for 함수 이용  
+```{r}
+iris_num <- NULL
+for(x in 1:ncol(iris)){
+  if(is.numeric(iris[, x]))
+  iris_num <- cbind(iris_num, iris[, x])
+}
+iris_num <- data.frame(iris_num)
+```
+
+- sapply 함수 이용  
+```{r}
+iris_num <- iris[, sapply(iris, is.numeric)]
+
+iris_num <- data.frame(iris_num)
+```
+
+
+2. 예시 데이터 만들기  
+예시 코드 작성을 위해 iris 데이터를 1-10행, 1-4열만 필터링한 뒤, 랜덤으로 NA 2개를 만듦  
+```{r}
+# iris 데이터 필터링
+iris_num <- iris[1:10, 1:4]
+
+# 랜덤으로 NA 넣을 행/열 번호 뽑기
+set.seed(123)
+idx_r <- sample(1:10, 2)
+idx_c <- sample(1:4, 2)
+
+# NA 넣기  
+for(i in 1:2){
+  iris_num[idx_r[i], idx_c[i]] <- NA
+}
+
+iris_num
+```
