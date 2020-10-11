@@ -17,14 +17,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # 1. github
-
+ 
 
 # 2. R
 ## 1. R Markdown 형식
 ```
 title: "tip00_basic" #문서 제목 지정
-author: "ne_choi"
-date: '2020 10 11 '
+author: "ne_choi" #저자
+date: '2020 10 11 ' #날짜
 output:
   html_document: #html 문서 생성
    toc: true #목차 추가
