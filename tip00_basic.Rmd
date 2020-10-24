@@ -35,5 +35,29 @@ output:
    highlight: textmate #구문 하이라이트
 ```
 
+## 2. 엑셀 데이터 합치기
+```{r}
+library(dplyr)
+library(readxl)
+
+files <- list.files(path = "엑셀 있는 폴더 경로", pattern = "*.xlsx", full.names = T)  
+products <- sapply(files, read_excel, simplify = FALSE) %>% 
+  bind_rows(.id = "id")
+```
+
+## 3. ggplot2 시각화
+# 시각화 테마를 위한 bbplot 패키지 설치 
+```
+if(!require(pacman))install.packages("pacman")
+```
+```{r}
+pacman::p_load('dplyr', 'tidyr', 'gapminder',
+               'ggplot2',  'ggalt',
+               'forcats', 'R.utils', 'png', 
+               'grid', 'ggpubr', 'scales',
+               'bbplot')
+```
+
+
 # 3. python
 
