@@ -60,4 +60,29 @@ pacman::p_load('dplyr', 'tidyr', 'gapminder',
 
 
 # 3. python
+## Unzip multiples zip files at once
+- using Linux command
+- serching keyword: ubuntu open zip files
+
+When we download kaggle data directly, sometimes we look zip files. So I will unzip this files on Google Colab using a Linux command.  
+
+First, I will show unzip each file. Then, I'll do unzip all zip files in one directory at once.  
+
+- Unzip a zip file on Google Colab
+
+```python
+!unzip your_file_name.zip
+```
+
+* If you work on Google Colab, don't forget `!`
+* you have to match path: using `%cd`
+
+- Unzip all zip files at once
+
+```python
+!unzip *.zip`
+```
+
+* If you work on Google Colab, don't forget `!`
+* you have to match path: using `%cd`
 
